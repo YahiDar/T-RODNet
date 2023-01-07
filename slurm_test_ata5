@@ -11,36 +11,40 @@
 #SBATCH --qos=gpu-8                 # To enable the use of up to 8 GPUs
 
 hostname
-mkdir /tmp/yahia.dalbah
-cd /tmp/yahia.dalbah
-mkdir /tmp/yahia.dalbah/data_root_test
-cp /l/users/yahia.dalbah/DATA_ROOT_TMP/* /tmp/yahia.dalbah/data_root_test
-# download all zip files and unzip
-cd data_root_test
-unzip TRAIN_RAD_H.zip
-unzip TRAIN_CAM_0.zip
-unzip TEST_RAD_H.zip
-unzip TRAIN_RAD_H_ANNO.zip
-unzip CAM_CALIB.zip
+if [ -d "/tmp/yahia.dalbah/Pickletest" ]
+then
+    echo "Directory exists"
+else
+    mkdir /tmp/yahia.dalbah
+    cd /tmp/yahia.dalbah
+    mkdir /tmp/yahia.dalbah/data_root_test
+    cp /l/users/yahia.dalbah/DATA_ROOT_TMP/* /tmp/yahia.dalbah/data_root_test
+    # download all zip files and unzip
+    cd data_root_test
+    unzip TRAIN_RAD_H.zip
+    unzip TRAIN_CAM_0.zip
+    unzip TEST_RAD_H.zip
+    unzip TRAIN_RAD_H_ANNO.zip
+    unzip CAM_CALIB.zip
 
-# make folders for data and annotations
-mkdir sequences
-mkdir annotations
+    # make folders for data and annotations
+    mkdir sequences
+    mkdir annotations
 
-# rename unzipped folders
-mv TRAIN_RAD_H sequences/train
-mv TRAIN_CAM_0 train
-mv TEST_RAD_H sequences/test
-mv TRAIN_RAD_H_ANNO annotations/train
+    # rename unzipped folders
+    mv TRAIN_RAD_H sequences/train
+    mv TRAIN_CAM_0 train
+    mv TEST_RAD_H sequences/test
+    mv TRAIN_RAD_H_ANNO annotations/train
 
-# merge folders and remove redundant
+    # merge folders and remove redundant
 
-rsync -av train/ sequences/train/
-rm -r train
-python /home/yahia.dalbah/T-RODNet/tools/prepare_dataset/prepare_data.py \
---config /home/yahia.dalbah/T-RODNet/configs/config_rodnet_hg1v2_win16_mnet.py \
---data_root /tmp/yahia.dalbah/data_root_test/ --split train,test --out_data_dir /tmp/yahia.dalbah/Pickletest ; 
-
+    rsync -av train/ sequences/train/
+    rm -r train
+    python /home/yahia.dalbah/T-RODNet/tools/prepare_dataset/prepare_data.py \
+    --config /home/yahia.dalbah/T-RODNet/configs/config_rodnet_hg1v2_win16_mnet.py \
+    --data_root /tmp/yahia.dalbah/data_root_test/ --split train,test --out_data_dir /tmp/yahia.dalbah/Pickletest ; 
+fi
 
 
 
