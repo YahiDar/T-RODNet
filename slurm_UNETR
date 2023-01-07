@@ -42,7 +42,7 @@ python /home/yahia.dalbah/T-RODNet/tools/prepare_dataset/prepare_data.py \
 
 
 python /home/yahia.dalbah/T-RODNet/tools/train.py \
---config /home/yahia.dalbah/T-RODNet/configs/T_RODNet.py \
+--config /home/yahia.dalbah/T-RODNet/configs/config_T_Rodnet_win16.py \
 --data_dir /tmp/yahia.dalbah/Pickle0 \
 --resume_from /l/users/yahia.dalbah/store/T_RODNet-20236420105-141002/epoch_30_final.pkl \
 --log_dir /l/users/yahia.dalbah/store/ 

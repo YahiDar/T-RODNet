@@ -23,7 +23,6 @@ from rodnet.utils.load_configs import load_configs_from_file, parse_cfgs, update
 from rodnet.utils.visualization import visualize_train_img
 
 from sys import path as syspath
-from os import path as ospath
 
 
 def parse_args():
@@ -47,8 +46,8 @@ if __name__ == "__main__":
     args = parse_args()
     config_dict = load_configs_from_file(args.config)
     config_dict = update_config_dict(config_dict, args)  # update configs by args
-    syspath.append(ospath.join(ospath.expanduser("~"), '/home/yahia.dalbah/T-RODNet/Nets/'))
-    from Nets.T_RODNet import T_RODNet  
+    
+    syspath.append('/home/yahia.dalbah/T-RODNet/Nets/T_RODNet.py')
     # dataset = CRUW(data_root=config_dict['dataset_cfg']['base_root'])
     dataset = CRUW(data_root=config_dict['dataset_cfg']['base_root'], sensor_config_name=args.sensor_config)
     radar_configs = dataset.sensor_cfg.radar_cfg
