@@ -329,7 +329,7 @@ if __name__ == "__main__":
             'model_name': model_name,
             'epoch': epoch,
             'iter': iter,
-            'model_state_dict': rodnet.state_dict(),
+            'model_state_dict': net.state_dict(),
             'optimizer_state_dict': optimizer.state_dict(),
             'loss': loss_confmap.item(),
             'loss_ave': loss_ave,
