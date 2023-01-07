@@ -21,8 +21,10 @@ from rodnet.core.radar_processing import chirp_amp
 from rodnet.utils.solve_dir import create_dir_for_new_model
 from rodnet.utils.load_configs import load_configs_from_file, parse_cfgs, update_config_dict
 from rodnet.utils.visualization import visualize_train_img
-import Nets
-from Nets.T_RODNet import T_RODNet
+
+from sys import path as syspath
+from os import path as ospath
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train T-RODNet.')
@@ -41,10 +43,12 @@ def parse_args():
 
 
 if __name__ == "__main__":
+    
     args = parse_args()
     config_dict = load_configs_from_file(args.config)
     config_dict = update_config_dict(config_dict, args)  # update configs by args
-
+    syspath.append(ospath.join(ospath.expanduser("~"), '/home/yahia.dalbah/T-RODNet/Nets/'))
+    from Nets.T_RODNet import T_RODNet  
     # dataset = CRUW(data_root=config_dict['dataset_cfg']['base_root'])
     dataset = CRUW(data_root=config_dict['dataset_cfg']['base_root'], sensor_config_name=args.sensor_config)
     radar_configs = dataset.sensor_cfg.radar_cfg
