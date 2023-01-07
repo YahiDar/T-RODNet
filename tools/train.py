@@ -48,6 +48,7 @@ if __name__ == "__main__":
     config_dict = update_config_dict(config_dict, args)  # update configs by args
     
     syspath.append('/home/yahia.dalbah/T-RODNet/Nets/T_RODNet.py')
+    import T_RODNet
     # dataset = CRUW(data_root=config_dict['dataset_cfg']['base_root'])
     dataset = CRUW(data_root=config_dict['dataset_cfg']['base_root'], sensor_config_name=args.sensor_config)
     radar_configs = dataset.sensor_cfg.radar_cfg
