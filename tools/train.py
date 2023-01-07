@@ -21,6 +21,7 @@ from rodnet.core.radar_processing import chirp_amp
 from rodnet.utils.solve_dir import create_dir_for_new_model
 from rodnet.utils.load_configs import load_configs_from_file, parse_cfgs, update_config_dict
 from rodnet.utils.visualization import visualize_train_img
+import Nets
 from Nets.T_RODNet import T_RODNet
 
 def parse_args():
