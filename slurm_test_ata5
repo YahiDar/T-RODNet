@@ -61,14 +61,14 @@ mkdir /l/users/yahia.dalbah/zipfiles/
 python /home/yahia.dalbah/T-RODNet/tools/test.py \
 --config /home/yahia.dalbah/T-RODNet/configs/config_T_Rodnet_win16.py \
 --data_dir /tmp/yahia.dalbah/Pickletest \
---checkpoint /l/users/yahia.dalbah/store/T_RODNet-20230107-220618/epoch_60_final.pkl \
+--checkpoint /l/users/yahia.dalbah/store/T_RODNet-20230130-230040/epoch_54_final.pkl \
 --res_dir /l/users/yahia.dalbah/results/test55/ ;
 
 
 
 
 python /home/yahia.dalbah/RODNet_testing/tools/format_transform/convert_rodnet_to_rod2021-slurm1.py \
---result_dir /l/users/yahia.dalbah/results/test55/T_RODNet-20230107-220618 / \
+--result_dir /l/users/yahia.dalbah/results/test55/T_RODNet-20230130-230040/ \
 --final_dir /l/users/yahia.dalbah/results/output_final/test55 ;
 
 
