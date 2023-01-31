@@ -57,7 +57,7 @@ mkdir /l/users/yahia.dalbah/results/output_final
 mkdir /l/users/yahia.dalbah/zipfiles/
 
 
-
+cd /home/yahia.dalbah/T-RODNet/
 python /home/yahia.dalbah/T-RODNet/tools/test.py \
 --config /home/yahia.dalbah/T-RODNet/configs/config_T_Rodnet_win16.py \
 --data_dir /tmp/yahia.dalbah/Pickletest \

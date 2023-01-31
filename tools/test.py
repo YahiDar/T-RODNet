@@ -6,7 +6,7 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
-from Nets.T_RODNet import T_RODNet
+from T_RODNet import T_RODNet
 from cruw import CRUW
 
 from rodnet.datasets.CRDataset import CRDataset
