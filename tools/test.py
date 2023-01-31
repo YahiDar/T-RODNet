@@ -105,9 +105,9 @@ if __name__ == "__main__":
             pretrained_dict = torch.load(checkpoint_path, map_location='cuda')
         else:
             pretrained_dict = torch.load(checkpoint_path, map_location='cpu')
-        pretrained_dict = {k: v for k, v in pretrained_dict.items() if np.shape(model_dict[k]) == np.shape(v)}
-        model_dict.update(pretrained_dict)
-        net.load_state_dict(model_dict)
+        # pretrained_dict = {k: v for k, v in pretrained_dict.items() if np.shape(model_dict[k]) == np.shape(v)}
+        # model_dict.update(pretrained_dict)
+        # net.load_state_dict(model_dict)
         print('Finished!')
         if Cuda:
             # net = nn.DataParallel(net)
